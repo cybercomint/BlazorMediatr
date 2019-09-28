@@ -1,0 +1,12 @@
+﻿@page "/"
+@inherits IndexBase
+
+<h1>@PageTitle</h1>
+
+<p>Loading an address @Address</p>
+
+<p>Click below buttons to show name @Name</p>
+
+<button class="btn btn-primary" @onclick="@(() => SetName("General"))">General</button>
+<button class="btn btn-primary" @onclick="@(() => SetName("President"))">President</button>
+<button class="btn btn-primary" @onclick="@(() => SetName("Actor"))">Actor</button>
