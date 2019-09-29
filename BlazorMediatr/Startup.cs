@@ -13,13 +13,13 @@ namespace BlazorMediatr {
 
         public IWebHostEnvironment WebHostEnvironment { get; }
 
-        public Startup(IConfiguration configuration, IWebHostEnvironment env) {
+        public Startup(IConfiguration configuration, IWebHostEnvironment webHostEnvironment) {
             this.Configuration = configuration;
-            this.WebHostEnvironment = env;
+            this.WebHostEnvironment = webHostEnvironment;
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
-            if (env.IsDevelopment()) {
+        public void Configure(IApplicationBuilder app) {
+            if (this.WebHostEnvironment.IsDevelopment()) {
                 app.UseDeveloperExceptionPage();
             } else {
                 app.UseExceptionHandler("/Error");
