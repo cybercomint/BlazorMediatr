@@ -23,12 +23,12 @@
     /// </remarks>
     public class SelfContainedExampleBase : ComponentBase {
 
-        public String Result { get; set; }
+        [Inject]
+        public IMediator Mediator { get; set; }
 
         public ViewModel Model { get; private set; }
 
-        [Inject]
-        public IMediator Mediator { get; set; }
+        public String Result { get; set; }
 
         public async Task VerifySelections() {
             var result = await this.Mediator.Send(new VerifyAnswerCommand { Name = this.Model.SelectedName, Role = this.Model.SelectedRole });
@@ -45,9 +45,15 @@
         }
 
         public class GetSelectionsQuery : IRequest<SelectionsDto> {
+
+            public GetSelectionsQuery() {
+            }
         }
 
         public class GetSelectionsQueryHandler : IRequestHandler<GetSelectionsQuery, SelectionsDto> {
+
+            public GetSelectionsQueryHandler() {
+            }
 
             public async Task<SelectionsDto> Handle(GetSelectionsQuery request, CancellationToken cancellationToken) {
                 await Task.Delay(500, cancellationToken);  // simulate call to repository
@@ -119,9 +125,9 @@
 
         public class ViewModel {
 
-            public IList<string> Names { get; }
+            public IList<String> Names { get; }
 
-            public IList<string> Roles { get; }
+            public IList<String> Roles { get; }
 
             public String SelectedName { get; set; }
 
