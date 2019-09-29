@@ -1,9 +1,9 @@
 ﻿namespace BlazorMediatr.Application.Queries {
 
-    using System;
+    using BlazorMediatr.Application.Dtos;
     using MediatR;
 
-    public class GetAddressQuery : IRequest<String> {
+    public class GetAddressQuery : IRequest<AddressDto> {
 
         public GetAddressQuery() {
         }

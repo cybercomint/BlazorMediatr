@@ -10,7 +10,7 @@
 
         protected String PageTitle { get; private set; } = String.Empty;
 
-        protected String Address { get; private set; } = "Loading...";
+        protected String AddressText { get; private set; } = "Loading...";
 
         [Inject]
         protected IMediator Mediator { get; set; }
@@ -30,7 +30,8 @@
         protected override async Task OnInitializedAsync() {
             // similar to controller methods, keep these thin and clean.
 
-            this.Address = await this.Mediator.Send(new GetAddressQuery());
+            var address = await this.Mediator.Send(new GetAddressQuery());
+            this.AddressText = address.ToSingleLineAddress();
         }
     }
 }

@@ -10,7 +10,7 @@
         public UpdateNameCommandHandler() {
         }
 
-        public async Task<string> Handle(UpdateNameCommand request, CancellationToken cancellationToken) {
+        public async Task<String> Handle(UpdateNameCommand request, CancellationToken cancellationToken) {
             // simulate calling a repository
             //   that updates the name in the database and returns it.
 
