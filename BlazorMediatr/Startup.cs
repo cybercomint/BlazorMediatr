@@ -11,8 +11,11 @@ namespace BlazorMediatr {
 
         public IConfiguration Configuration { get; }
 
-        public Startup(IConfiguration configuration) {
-            Configuration = configuration;
+        public IWebHostEnvironment WebHostEnvironment { get; }
+
+        public Startup(IConfiguration configuration, IWebHostEnvironment env) {
+            this.Configuration = configuration;
+            this.WebHostEnvironment = env;
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
@@ -36,7 +39,11 @@ namespace BlazorMediatr {
 
         public void ConfigureServices(IServiceCollection services) {
             services.AddRazorPages();
-            services.AddServerSideBlazor();
+            services.AddServerSideBlazor().AddCircuitOptions(o => {
+                if (this.WebHostEnvironment.IsDevelopment()) {
+                    o.DetailedErrors = true;
+                }
+            });
             services.AddMediatR(typeof(Startup));
         }
     }

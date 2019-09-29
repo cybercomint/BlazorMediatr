@@ -1,12 +1,5 @@
 ﻿@page "/"
-@inherits IndexBase
 
-<h1>@PageTitle</h1>
+<h1>Blazor with Simple CQRS and MediatR</h1>
 
-<p>Loading an address @AddressText</p>
-
-<p>Click below buttons to show name @Name</p>
-
-<button class="btn btn-primary" @onclick="@(() => SetName("General"))">General</button>
-<button class="btn btn-primary" @onclick="@(() => SetName("President"))">President</button>
-<button class="btn btn-primary" @onclick="@(() => SetName("Actor"))">Actor</button>
+<p>Select from the menu to see the same form written using two different approaches.</p>
