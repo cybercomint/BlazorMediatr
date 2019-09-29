@@ -8,6 +8,15 @@
     using MediatR;
     using Microsoft.AspNetCore.Components;
 
+    /// <summary>
+    /// Class WebApiStyleExampleBase.
+    /// Derives from the <see cref="ComponentBase" />
+    /// </summary>
+    /// <remarks>
+    /// This class demonstrates one approach to using MediatR in a Blazor application.
+    /// This approach is very similar to using MediatR in a Web API app, where the two below methods would each be controller routes.
+    /// Notice the 'Application' folder that contains the commands, models, and queries.
+    /// </remarks>
     public class WebApiStyleExampleBase : ComponentBase {
 
         [Inject]

@@ -7,6 +7,20 @@
     using MediatR;
     using Microsoft.AspNetCore.Components;
 
+    /// <summary>
+    /// Class SelfContainedExampleBase.
+    /// Derives from the <see cref="ComponentBase" />
+    /// </summary>
+    /// <remarks>
+    /// This class demonstrates one approach to using MediatR in a Blazor application.
+    /// All the code(except the fictitious repository and possibly domain objects) is contained in this one file.
+    /// Nested classes are used to hold the queries, commands, and model objects that 'could' be placed in separate files.
+    /// One advantage of structuring the application this way, is all the code required for this feature is here.
+    /// If this feature requires a modification, the chance of merge conflicts is near zero when the developer checks in.
+    /// This code was presented by Jimmy Bogard at NDC 2018. In the presentation he was showing something similar in a MVC Razor page.
+    /// Since Blazor pages are so similar to Razor pages, it made sense to try this.
+    /// Dependency Injection handles all the magic of associating the query or command with it's handler.  Send Mediator it's request, and it's handled for you.
+    /// </remarks>
     public class SelfContainedExampleBase : ComponentBase {
 
         public String Result { get; set; }
